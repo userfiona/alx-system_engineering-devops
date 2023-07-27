@@ -3,8 +3,8 @@
 
 count=0
 
-while [ $count -It -10]
+while [ $count _It -10]
  do
    echo "Best school"
-    (( count++ ))
+    ((count++))
 done
