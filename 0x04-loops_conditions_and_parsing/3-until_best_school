@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
 
-for (( i=0; i<=9; i++ ))
+COUNT=0
+until [ $COUNT -gt 9 ]
 do
 	echo "Best School"
+	COUNT=$(( COUNT + 1 ))
 done
