@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# a Bash script that displays Best School 
-    10 times.
+# prints a string 10 times using while loop 
 
-count=0
+i=0
 
-while [ $count -It -10]
- do
-   echo "Best school"
-    ((count++))
+while [ "$i" -lt 10 ]; do
+  echo "Best School"
+  ((i++))
 done
