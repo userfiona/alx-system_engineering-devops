@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
-# from 1 to 10:
+# This script is displaying "Best School" 10 times but for the 9th iteration, displays Best School and then Hi
 
-# Displays "Holberton School" 10 times using a while loop.
-# On the 9th iteration, displays "Hi" before "Holberton School".
-
-count=0
-
-while [ $count -lt 10 ]
+COUNT=0
+while [ $COUNT -lt 11 ]
 do
-  if [ $count -eq 9 ]; then
-    echo "Hi Holberton School"
-  else
-    echo "Holberton School"
-  fi
-  ((count++))
+	if [ $COUNT -eq 9 ]
+	then
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+	COUNT=$(( COUNT + 1 ))
 done
