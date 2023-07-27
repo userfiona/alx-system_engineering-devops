@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Displays "Holberton School" 10 times using a for loop.
+# On the 9th iteration, displays "Hi" before "Holberton School".
+
+for count in {0..9}; do
+  if [ $count -eq 9 ]; then
+    echo "Hi"
+  fi
+  echo "Holberton School"
+done
