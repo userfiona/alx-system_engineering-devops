@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# from 1 to 10:
+
 # Displays "Holberton School" 10 times using a while loop.
 # On the 9th iteration, displays "Hi" before "Holberton School".
 
