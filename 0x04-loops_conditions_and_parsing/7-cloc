@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# display time for 12 hours and 59 minutes
+
+# display time for 12 hours and 59 minutes
+
+for ((hour = 0; hour <= 12; hour++)); do
+  echo "Hour: $hour"
+
+  for ((minute = 1; minute < 60; minute++)); do
+    echo "$minute"
+  done
+done
