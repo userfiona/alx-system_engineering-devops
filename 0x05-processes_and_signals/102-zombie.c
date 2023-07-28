@@ -3,11 +3,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-/**
- * main - zombies.
- * Description: make five zombies
- * Return: 0 for success
- */
+#  Zombie
 
 int main(void)
 {
