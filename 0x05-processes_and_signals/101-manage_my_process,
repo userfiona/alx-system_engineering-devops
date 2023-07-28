@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Manages 'manage_my_process'
+# Manage my process
 
 if [ $# -eq 0 ]; then
     echo "Usage: $0 {start|stop|restart}"
