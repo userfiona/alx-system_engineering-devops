@@ -17,8 +17,6 @@
 #   If any other or no arguments are passed, displays
 #+  "Usage: manage_my_process {start|stop|restart}"
 
-
-# check for the correct amount of argument
 if [ -z "$1" ]
 then
   echo "Usage: manage_my_process {start|stop|restart}"
@@ -29,8 +27,6 @@ elif [ -n "$2" ]
   exit
 fi
 
-
-# executet the command line arguments
 if [ "$1" == "start" ]
 then
   ./manage_my_process &
