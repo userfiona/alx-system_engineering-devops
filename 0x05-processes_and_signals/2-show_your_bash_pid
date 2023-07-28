@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This script displays lines containing the word "bash" from files in the current directory
 # where only the part of the name after the first dash is displayed
+# Show my Bash PID
 
 find . -maxdepth 1 -type f -name "*-*" ! -name ".*" -print0 | while IFS= read -r -d '' file; do
   name=$(basename "$file" | cut -d '-' -f 2)
