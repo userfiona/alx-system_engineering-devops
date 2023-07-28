@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Beheaded process
+kill -KILL "$(pgrep -f 7-highlander)"
