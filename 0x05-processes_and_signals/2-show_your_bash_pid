@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+# Show my Bash PID
 
-# Use read while-loop with null delimiter
-find . -maxdepth 1 -type f -name "*-*" ! -name ".*" -print0 | while I read -r -d '' file; do
+find . -maxdepth 1 -type f -name "*-*" ! -name ".*" -print0 | while IFS= read -r -d '' file; do
   name=$(basename "$file" | cut -d '-' -f 2)
   echo "$name"
 
