@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# displays PID line containing base word
+# Show my Bash PID
 # shellcheck disable=SC2009
 ps -aux | grep bash
