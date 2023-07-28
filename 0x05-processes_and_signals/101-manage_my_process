@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Manage the 'manage_my_process'
 
 PROGRAM='manage_my_process'
