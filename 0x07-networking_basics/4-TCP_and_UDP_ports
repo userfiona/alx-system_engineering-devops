@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#a Bash scr
+ipt that displays listening ports
+netstat -l p
