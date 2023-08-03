@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bash script that listens on port 98 on localhost and runs in the background
+nc -l 98 &
