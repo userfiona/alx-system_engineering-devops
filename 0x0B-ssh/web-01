@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
+# server-01 login
+
+eval $(ssh-agent)
+=======
 #server-01 login
 
 eval $("ssh-agent")
+>>>>>>> c479ba615255de34b683a760bf2be69795e4498e
 
 ssh-add ~/.ssh/id_rsa 
 
