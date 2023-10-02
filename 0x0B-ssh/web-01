@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
-<<<<<<< HEAD
-# server-01 login
+# Connects to server  54.90.31.81 with key in ~/.ssh/54.90.31.81
 
-eval $(ssh-agent)
-=======
-#server-01 login
-
-eval $("ssh-agent")
->>>>>>> c479ba615255de34b683a760bf2be69795e4498e
-
-ssh-add ~/.ssh/id_rsa 
-
-ssh ubuntu@54.90.31.81
+ssh -i ~/.ssh/id_rsa ubuntu@54.90.31.81
