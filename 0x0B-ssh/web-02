@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Connects to server 52.207.73.35 with key in ~/.ssh/52.207.73.35
-
-ssh -i ~/.ssh/id_rsa ubuntu@52.207.73.35
