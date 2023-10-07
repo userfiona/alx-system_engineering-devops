@@ -6,18 +6,19 @@ defaults
         log     global
         mode    http
         option  httplog
-	timeout connect  10s
+	timeout connect 10s
 	timeout client  30s
 	timeout server  30s
 
-frontend th3gr00t-tech-frontend
-	bind *:80
-	bind *:443 ssl crt /etc/haproxy/certs/th3gr00t.tech.pem
-	http-request redirect scheme https unless { ssl_fc }
-	http-request set-header X-Forwarded-Proto https
-	default_backend th3gr00t-tech-backend
+frontend www-https
+    bind *:443 ssl crt /etc/letsencrypt/live/futuresystemtech.tech/fullchain.pem
+    mode http
+    option httplog
+    acl url_root path -i /
+    use_backend www-backend if url_root
 
-backend th3gr00t-tech-backend
-	balance roundrobin
-	server 453-web-01 52.91.145.94:80 check
-	server 453-web-02 52.207.73.35:80 check
+backend www-backend
+    mode http
+    balance roundrobin
+    server web-01 52.91.145.94:80 check
+    server web-02 52.207.73.35:80 check	
