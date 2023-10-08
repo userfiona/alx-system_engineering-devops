@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# This is a script that displays information about subdomains.
+
+# Define a function to retrieve and display DNS information for a subdomain of a domain.
+domain_info () {
+    # Use 'dig' to query DNS information for the specified subdomain of the given domain.
+    line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    
+    # Print the subdomain, record type, and destination in the required format.
+    echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+}
+
+# Check the number of command-line arguments provided.
+if [ "$#" == 1 ]
+then
+    # If there's only one argument (the domain), display information for default subdomains.
+    domain_info "$1" "www"
+    domain_info "$1" "lb-01"
+    domain_info "$1" "web-01"
+    domain_info "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+    # If there are two arguments (domain and subdomain), display information for the specified subdomain.
+    domain_info "$1" "$2"
+fi
