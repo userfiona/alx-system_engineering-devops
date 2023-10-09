@@ -2,7 +2,7 @@
 file_line { 'Identity file':
   ensure => 'present',
   path   => '/etc/ssh/ssh_config',
-  line   => '    IdentityFile ~/.ssh/school',
+  line   => '    IdentityFile ~/.ssh/id_rsa',
 }
 file_line { 'disable password login':
     path    => '/etc/ssh/ssh_config',
