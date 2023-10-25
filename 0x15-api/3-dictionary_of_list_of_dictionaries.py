@@ -1,60 +1,29 @@
 #!/usr/bin/python3
-"""script that fetches info about all employees using an api
-and exports it in json format
-"""
-import json
-import requests
-
-
-base_url = 'https://jsonplaceholder.typicode.com'
+"""Exports data in the JSON format"""
 
 if __name__ == "__main__":
 
-    # get users info e.g https://jsonplaceholder.typicode.com/users
-    users_url = '{}/users'.format(base_url)
+    import json
+    import requests
+    import sys
 
-    # get info from api
-    response = requests.get(users_url)
-    # pull data from api
-    data = response.text
-    # parse the data into JSON format
-    data = json.loads(data)
+    userId = sys.argv[1]
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(userId))
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
+    todos = todos.json()
 
-    # extract users data
-    builder = {}
-    for user in data:
-        user_id = user.get('id')
-        # print("id is: {}".format(user_id))
+    todoUser = {}
+    taskList = []
 
-        user_name = user.get('username')
-        # print("username is: {}".format(user_name))
+    for task in todos:
+        if task.get('userId') == int(userId):
+            taskDict = {"task": task.get('title'),
+                        "completed": task.get('completed'),
+                        "username": user.json().get('username')}
+            taskList.append(taskDict)
+    todoUser[userId] = taskList
 
-        dict_key = str(user_id)
-        # print("dict_key: {}".format(dict_key))
-
-        builder[dict_key] = []
-        # get user info about todo tasks
-        # e.g https://jsonplaceholder.typicode.com/users/1/todos
-        tasks_url = '{}/todos?userId={}'.format(base_url, user_id)
-        # print("tasks url is: {}".format(tasks_url))
-
-        # get info from api
-        response = requests.get(tasks_url)
-        # pull data from api
-        tasks = response.text
-        # parse the data into JSON format
-        tasks = json.loads(tasks)
-        # print("JSOON LOADS IS: {}".format(tasks))
-
-        for task in tasks:
-            json_data = {
-                "task": task['title'],  # or use get method
-                "completed": task['completed'],
-                "username": user_name
-            }
-            # append dictionary key to the dictionary
-            builder[dict_key].append(json_data)
-    # write the data to the file
-    json_encoded_data = json.dumps(builder)
-    with open('todo_all_employees.json', 'w', encoding='UTF8') as myFile:
-        myFile.write(json_encoded_data)
+    filename = userId + '.json'
+    with open(filename, mode='w') as f:
+        json.dump(todoUser, f)

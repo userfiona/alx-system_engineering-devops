@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""this script for export data in the CSV format"""
+"""Exports data in the CSV format"""
 
-if _name_ == "_main_":
+if __name__ == "__main__":
 
     import csv
     import requests
