@@ -1,29 +1,31 @@
 #!/usr/bin/python3
-"""Exports data in the JSON format"""
+"""
+    Extend Python script in 0-gather_data_from_an_API.py file to export data
+    in the JSON format.
+
+    Requirement:
+    ============
+    Records all tasks from all employees.
+"""
+
 
 if __name__ == "__main__":
-
     import json
     import requests
-    import sys
 
-    userId = sys.argv[1]
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                        .format(userId))
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    todos = todos.json()
+    url = "https://jsonplaceholder.typicode.com"
+    employees = requests.get("{}/users".format(url)).json()
+    tasks = requests.get("{}/todos".format(url)).json()
 
-    todoUser = {}
-    taskList = []
+    my_dict = {}
+    for employee in employees:
+        my_list = [{
+            "task": dict.get("title"),
+            "completed": dict.get("completed"),
+            "username": employee.get("username")}
+            for dict in tasks if dict.get("userId") == employee.get("id")]
+        my_dict[employee.get("id")] = my_list
 
-    for task in todos:
-        if task.get('userId') == int(userId):
-            taskDict = {"task": task.get('title'),
-                        "completed": task.get('completed'),
-                        "username": user.json().get('username')}
-            taskList.append(taskDict)
-    todoUser[userId] = taskList
-
-    filename = userId + '.json'
-    with open(filename, mode='w') as f:
-        json.dump(todoUser, f)
+    filename = "todo_all_employees.json"
+    with open(filename, 'w') as json_file:
+        json.dump(my_dict, json_file)`
