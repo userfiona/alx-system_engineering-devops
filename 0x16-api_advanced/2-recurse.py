@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Recurse it ! Reddit API 
+Reddit APIRecurse it ! Reddit API 
 """
 import requests
 after = None
