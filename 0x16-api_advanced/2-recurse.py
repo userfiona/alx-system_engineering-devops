@@ -7,13 +7,8 @@ after = None
 
 
 def recurse(subreddit, hot_list=[]):
-    """"""
-    Retrieves the top post titles from the specified subreddit.
 
-    :param subreddit: The name of the subreddit to fetch posts from.
-    :param limit: The number of top post titles to retrieve (default is 10).
-    :return: A list of top post titles or an empty list if there was an issue with the request.
-    """"""
+    """Retrieves the top post titles from the specified subreddit."""
     global after
     user_agent = {'User-Agent': 'api_advanced-project'}
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
