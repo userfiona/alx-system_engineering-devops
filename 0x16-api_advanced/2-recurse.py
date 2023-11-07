@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script uses the Reddit API to retrieve the top ten post titles from a specified subreddit recursively.
+This script uses the Reddit API to retrieve procedure
 """
 
 import requests
