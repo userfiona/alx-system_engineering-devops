@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script uses the Reddit API to retrieve procedure
+This script uses the Reddit API to retrieve procedure that is repeated
 """
 
 import requests
