@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-importing requests module
+Top Ten
 """
 
 from requests import get
