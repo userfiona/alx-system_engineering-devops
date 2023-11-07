@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 """
-Queries the Reddit API and returns a list containing the titles of all hot
-articles for a given subreddit.
+reddit API
 """
 import requests
 after = None
 
 
 def recurse(subreddit, hot_list=[]):
-
     """Retrieves the top post titles from the specified subreddit."""
     global after
     user_agent = {'User-Agent': 'api_advanced-project'}
