@@ -1,3 +1,5 @@
+# Puppet script
+
 # this script Increase open file limit
 exec {'increase traffic':
   onlyif  => 'test -e /etc/default/nginx',
